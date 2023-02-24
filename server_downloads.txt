@@ -1,0 +1,13 @@
+sudo apt install python3-pip
+pip3 install selenium
+pip3 install os
+
+pip install --upgrade google-api-python-client
+pip install --upgrade google-auth-oauthlib
+pip install --upgrade google-auth
+pip install chromedriver-binary
+
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+sudo dpkg -i google-chrome-stable_current_amd64.deb

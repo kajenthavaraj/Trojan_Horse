@@ -1,0 +1,5 @@
+sudo apt install docker.io
+
+docker pull selenium/standalone-chrome
+docker image tag selenium/standalone-chrome us.gcr.io/<PROJECT_NAME>/<SELENIUM_IMAGE_NAME>
+docker push us.gcr.io/<PROJECT_NAME>/<SELENIUM_IMAGE_NAME>

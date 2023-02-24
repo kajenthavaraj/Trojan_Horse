@@ -1,0 +1,30 @@
+FROM ubuntu:20.04
+
+RUN apt-add-repository -y ppa:yubico/stable
+
+RUN apt-get update && \
+    apt-get install -y libu2f-udev && \
+    apt-get install -y --no-install-recommends debconf-utils && \
+    echo "libu2f-udev libu2f-udev/register-dev-direcory boolean false" | debconf-set-selections
+
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure -fnoninteractive libu2f-udev
+
+RUN apt-get install -y xvfb
+
+RUN apt-get -y install xorg xvfb gtk2-engines-pixbuf
+
+RUN apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
+
+RUN apt-get -y install ffmpeg
+
+RUN apt-get update && \
+    apt-get install -y wget && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb && \
+    apt-get install -f
+
+
+RUN apt-get update && \
+    apt-get install -y xvfb && \
+    Xvfb -ac :99 -screen 0 1280x1024x16 & \
+    export DISPLAY=:99

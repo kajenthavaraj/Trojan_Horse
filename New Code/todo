@@ -1,0 +1,77 @@
+Outline infrastrucutre
+
+1. Use Zalenium on Google cloud
+    - Run dockers on Google cloud
+    - Create dockerfile to intialize with Python, FFMPEG, Selenium, and source code to run <- how to get this from GCE?? 
+    
+         https://www.youtube.com/watch?v=YFl2mCHdv24
+
+
+2. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code to create VM
+    - Start and Stop VMs: https://cloud.google.com/compute/docs/instances/stop-start-instance
+Code to create dockers on VM
+    - https://cloud.google.com/compute/docs/containers/deploying-containers
+    - https://www.youtube.com/watch?v=gCWSdpLepHM
+Code to run pytest in dockers
+    - https://www.youtube.com/watch?v=nDZgYDqoPqc&t=86s
+
+Code to screen record on pytest
+Code to edit videos
+Code to run code in parallel on multiple VMs at once
+    - create VM instances in bulk
+    https://cloud.google.com/compute/docs/instances/multiple/create-in-bulk
+
+
+
+Running selenium in docker - https://www.youtube.com/watch?v=gCWSdpLepHM
+
+Shutting down command: sudo shutdown -h now
+
+
+
+1. Start VM instance
+2. Dockerize VM with 3 dockers
+3. Run Selenium on dockers
+
+- figure out how to do it in bulk with 1000 VMs at once, all dockerized at once and running selenium script
+
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+1. Create 1,000 Linux Ubuntu VM instances (pre created on GCE)
+2. Dockerize each VM instance (3 dockes / VM)
+----------------------------------------------------------------
+3. Calculate # of VM instances needed - (num_VMs = num_vids/3)
+4. Start VM instnaces from instance_{num} looping from i=1 to i=num_VMs
+        i=1
+        for i<= num_VMs
+            glcoud.run(start instance_{i})   <- gcloud command to start instance_{i}
+            i+=1
+5. 
